@@ -1,145 +1,414 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+/* =========================
+   GOOGLE FONT
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
 }
 
-body {
-    background: #0b1220;
-    color: white;
+body{
+    background:#0d1117;
+    font-family:'Poppins', sans-serif;
+    color:white;
+    overflow-x:hidden;
 }
 
-/* NAV */
-.nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 60px;
-    background: #0f1a30;
-    position: sticky;
-    top: 0;
+/* =========================
+   BACKGROUND
+========================= */
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(95,131,160,0.25), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(74,95,120,0.25), transparent 35%);
+    z-index:-1;
 }
 
-.nav .logo {
-    font-size: 20px;
-    font-weight: bold;
+/* =========================
+   NAVBAR
+========================= */
+.nav{
+    width:92%;
+    margin:25px auto;
+    padding:20px 40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(18,22,28,0.75);
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(14px);
+
+    border-radius:28px;
+
+    position:sticky;
+    top:20px;
+    z-index:1000;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.35);
 }
 
-.nav .logo span {
-    color: #4ea1ff;
+.logo{
+    font-size:1.4rem;
+    font-weight:700;
+    font-family:'Orbitron', sans-serif;
+    letter-spacing:1px;
+    color:white;
 }
 
-.nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
+.logo span{
+    color:#9ec9ff;
 }
 
-/* HERO */
-.hero {
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: radial-gradient(circle at top, #1b2a4a, #0b1220);
+nav{
+    display:flex;
+    gap:28px;
 }
 
-.hero h1 {
-    font-size: 50px;
+nav a{
+    text-decoration:none;
+    color:#d6d6d6;
+    font-size:0.95rem;
+    transition:0.3s;
+    position:relative;
 }
 
-.hero p {
-    margin-top: 10px;
-    color: #b6c2d9;
+nav a:hover{
+    color:white;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background: #4ea1ff;
-    color: white;
-    border-radius: 8px;
-    text-decoration: none;
+nav a::after{
+    content:'';
+    position:absolute;
+    width:0%;
+    height:2px;
+    left:0;
+    bottom:-6px;
+    background:#9ec9ff;
+    transition:0.3s;
 }
 
-/* SECTIONS */
-.card-section, .calculator, .result-section {
-    padding: 60px;
-    display: flex;
-    justify-content: center;
+nav a:hover::after{
+    width:100%;
 }
 
-.card {
-    background: #121c33;
-    padding: 30px;
-    border-radius: 12px;
-    width: 60%;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+/* =========================
+   HERO
+========================= */
+.hero{
+    width:92%;
+    min-height:80vh;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1400&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    border-radius:30px;
+
+    padding:70px;
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,0.45);
+
+    overflow:hidden;
 }
 
-h2 {
-    margin-bottom: 15px;
-    color: #4ea1ff;
+.hero-text{
+    max-width:700px;
 }
 
-.formula {
-    background: #0b1220;
-    padding: 10px;
-    margin: 10px 0;
-    border-left: 4px solid #4ea1ff;
+.hero-text h1{
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:20px;
+
+    font-family:'Orbitron', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:3px;
 }
 
-.formula.big {
-    font-size: 22px;
-    text-align: center;
+.hero-text p{
+    color:#d8d8d8;
+    font-size:1.15rem;
+    margin-bottom:35px;
+    max-width:550px;
 }
 
-/* FORM */
-form {
-    display: flex;
-    flex-direction: column;
+.btn{
+    display:inline-block;
+    padding:16px 34px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    color:white;
+    text-decoration:none;
+
+    border-radius:18px;
+
+    backdrop-filter:blur(12px);
+
+    transition:0.3s;
 }
 
-input {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    outline: none;
+.btn:hover{
+    background:#9ec9ff;
+    color:#111;
+    transform:translateY(-3px);
 }
 
-button {
-    margin-top: 15px;
-    padding: 12px;
-    background: #4ea1ff;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 6px;
+/* =========================
+   SECTIONS
+========================= */
+.card-section,
+.calculator,
+.result-section{
+    width:92%;
+    margin:40px auto;
 }
 
-/* TABLE */
-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
+/* =========================
+   CARD DESIGN
+========================= */
+.card{
+    background:rgba(15,19,24,0.92);
+
+    border:1px solid rgba(255,255,255,0.06);
+
+    border-radius:28px;
+
+    padding:45px;
+
+    backdrop-filter:blur(16px);
+
+    box-shadow:
+    0 12px 40px rgba(0,0,0,0.35);
 }
 
-th, td {
-    border: 1px solid #2a3550;
-    padding: 10px;
-    text-align: center;
+.card h2{
+    font-size:2.3rem;
+    margin-bottom:25px;
+
+    font-family:'Orbitron', sans-serif;
+    letter-spacing:2px;
 }
 
-th {
-    background: #0f1a30;
+.card h3{
+    margin-top:30px;
+    margin-bottom:18px;
+    font-size:1.3rem;
+    color:#cddfff;
 }
 
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    color: #777;
-}sss
+.card p{
+    line-height:1.9;
+    color:#cfcfcf;
+    margin-bottom:18px;
+}
+
+/* =========================
+   FORMULA
+========================= */
+.formula{
+    margin:22px 0;
+    padding:18px;
+
+    background:#121821;
+
+    border-left:4px solid #9ec9ff;
+
+    border-radius:14px;
+
+    font-size:1.25rem;
+
+    font-family:'Orbitron', sans-serif;
+
+    overflow-x:auto;
+}
+
+.big{
+    text-align:center;
+    font-size:2rem;
+}
+
+/* =========================
+   TABLE
+========================= */
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+
+    overflow:hidden;
+    border-radius:20px;
+}
+
+table th{
+    background:#151d27;
+    color:#9ec9ff;
+    padding:18px;
+    text-align:left;
+    font-size:0.95rem;
+}
+
+table td{
+    padding:16px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    color:#e5e5e5;
+}
+
+table tr{
+    background:#0f141c;
+    transition:0.3s;
+}
+
+table tr:hover{
+    background:#161f2a;
+}
+
+/* =========================
+   FORM
+========================= */
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:25px;
+}
+
+label{
+    font-size:0.95rem;
+    color:#d8d8d8;
+}
+
+input{
+    padding:16px;
+
+    border:none;
+    outline:none;
+
+    border-radius:16px;
+
+    background:#121821;
+
+    color:white;
+
+    font-size:1rem;
+
+    border:1px solid rgba(255,255,255,0.06);
+}
+
+input:focus{
+    border:1px solid #9ec9ff;
+}
+
+button{
+    margin-top:10px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#9ec9ff;
+
+    color:#111;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+    opacity:0.9;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer{
+    width:92%;
+    margin:50px auto 30px auto;
+
+    padding:25px;
+
+    text-align:center;
+
+    background:rgba(15,19,24,0.85);
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,0.05);
+
+    color:#bdbdbd;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(max-width:900px){
+
+    .hero-text h1{
+        font-size:3rem;
+    }
+
+    .nav{
+        flex-direction:column;
+        gap:18px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .card{
+        padding:28px;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero{
+        padding:40px 25px;
+    }
+
+    .hero-text h1{
+        font-size:2.2rem;
+    }
+
+    .card h2{
+        font-size:1.7rem;
+    }
+
+    table{
+        display:block;
+        overflow-x:auto;
+    }
+}
