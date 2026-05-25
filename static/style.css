@@ -107,6 +107,10 @@ nav a:hover::after{
 /* =========================
    HERO
 ========================= */
+/* =========================
+   REMOVE HERO IMAGE
+========================= */
+
 .hero{
     width:92%;
     min-height:80vh;
@@ -116,126 +120,127 @@ nav a:hover::after{
     align-items:center;
     justify-content:center;
 
+    /* REMOVED IMAGE */
     background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
-    url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?q=80&w=1400&auto=format&fit=crop');
-
-    background-size:cover;
-    background-position:center;
+    linear-gradient(
+        135deg,
+        #111827,
+        #1b2636,
+        #243447
+    );
 
     border-radius:30px;
 
     padding:70px;
 
+    position:relative;
+    overflow:hidden;
+
     box-shadow:
     0 25px 50px rgba(0,0,0,0.45);
-
-    overflow:hidden;
 }
 
-.hero-text{
-    max-width:700px;
-}
-
-.hero-text h1{
-    font-size:5rem;
-    line-height:1;
-    margin-bottom:20px;
-
-    font-family:'Orbitron', sans-serif;
-    text-transform:uppercase;
-    letter-spacing:3px;
-}
-
-.hero-text p{
-    color:#d8d8d8;
-    font-size:1.15rem;
-    margin-bottom:35px;
-    max-width:550px;
-}
-
-.btn{
-    display:inline-block;
-    padding:16px 34px;
-
-    background:rgba(255,255,255,0.08);
-
-    border:1px solid rgba(255,255,255,0.12);
-
-    color:white;
-    text-decoration:none;
-
-    border-radius:18px;
-
-    backdrop-filter:blur(12px);
-
-    transition:0.3s;
-}
-
-.btn:hover{
-    background:#9ec9ff;
-    color:#111;
-    transform:translateY(-3px);
-}
 /* =========================
-   ADD THIS BELOW .hero
+   BIG BUBBLE BACKGROUND
 ========================= */
+
+.hero::before{
+    content:'';
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    top:-180px;
+    left:-150px;
+
+    background:
+    radial-gradient(circle,
+    rgba(158,201,255,0.18),
+    transparent 70%);
+
+    border-radius:50%;
+
+    filter:blur(30px);
+}
 
 .hero::after{
     content:'';
 
     position:absolute;
-    bottom:-120px;
-    left:50%;
-    transform:translateX(-50%);
 
-    width:120%;
-    height:220px;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(158,201,255,0.18),
-    rgba(255,255,255,0.03),
-    transparent 70%);
-
-    filter:blur(40px);
-
-    border-radius:50%;
-
-    z-index:0;
-}
-
-/* make hero relative */
-.hero{
-    position:relative;
-}
-
-/* =========================
-   FLOATING BUBBLE EFFECT
-========================= */
-
-body::after{
-    content:'';
-
-    position:fixed;
-    width:500px;
-    height:500px;
+    width:450px;
+    height:450px;
 
     bottom:-180px;
     right:-120px;
 
     background:
     radial-gradient(circle,
-    rgba(158,201,255,0.12),
+    rgba(255,255,255,0.08),
     transparent 70%);
 
+    border-radius:50%;
+
     filter:blur(40px);
+}
+
+/* =========================
+   FLOATING SMALL BUBBLES
+========================= */
+
+body{
+    background:#0d1117;
+    position:relative;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:'';
+
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    top:10%;
+    right:-100px;
+
+    background:
+    radial-gradient(circle,
+    rgba(158,201,255,0.10),
+    transparent 70%);
 
     border-radius:50%;
+
+    filter:blur(30px);
 
     z-index:-1;
 }
 
+body::after{
+    content:'';
+
+    position:fixed;
+
+    width:250px;
+    height:250px;
+
+    bottom:5%;
+    left:-80px;
+
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,0.05),
+    transparent 70%);
+
+    border-radius:50%;
+
+    filter:blur(35px);
+
+    z-index:-1;
+}
 /* =========================
    GLASS BUBBLE CARD EFFECT
 ========================= */
