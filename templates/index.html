@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Point Iteration</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="nav">
+
+    <div class="logo">
+        Fixed-Point<span>Iteration</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#discussion">Discussion</a>
+        <a href="#examples">Examples</a>
+        <a href="#calculator">Calculator</a>
+    </nav>
+
+</header>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>Fixed-Point Iteration Method</h1>
+
+        <p>
+            Numerical Methods Online Calculator using Flask and Python
+        </p>
+
+        <a href="#calculator" class="btn">
+            Start Calculating
+        </a>
+
+    </div>
+
+</section>
+
+<!-- DISCUSSION -->
+<section class="card-section" id="discussion">
+
+    <div class="card">
+
+        <h2>Mathematical Discussion</h2>
+
+        <p>
+            The Fixed-Point Iteration Method is used to solve equations
+            in the form:
+        </p>
+
+        <div class="formula">
+            x = g(x)
+        </div>
+
+        <p>
+            Starting from an initial guess x₀, the next approximation
+            is computed using:
+        </p>
+
+        <div class="formula">
+            xₙ₊₁ = g(xₙ)
+        </div>
+
+        <p>
+            The process repeats until the error becomes very small.
+            If the method converges, the approximations approach
+            the actual root.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- EXAMPLES -->
+<section class="card-section" id="examples">
+
+    <div class="card">
+
+        <h2>Worked Example 1</h2>
+
+        <p>Solve:</p>
+
+        <div class="formula">
+            x = cos(x)
+        </div>
+
+        <p>Initial Guess:</p>
+
+        <div class="formula">
+            x₀ = 0.5
+        </div>
+
+        <h3>Step-by-Step Solution</h3>
+
+        <table>
+
+            <tr>
+                <th>Iteration</th>
+                <th>Formula</th>
+                <th>Result</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>x₁ = cos(0.5)</td>
+                <td>0.877583</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>x₂ = cos(0.877583)</td>
+                <td>0.639012</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>x₃ = cos(0.639012)</td>
+                <td>0.802685</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>x₄ = cos(0.802685)</td>
+                <td>0.694778</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>x₅ = cos(0.694778)</td>
+                <td>0.768196</td>
+            </tr>
+
+        </table>
+
+        <p>The values converge to:</p>
+
+        <div class="formula">
+            x ≈ 0.739085
+        </div>
+
+        <br><br>
+
+        <h2>Worked Example 2</h2>
+
+        <p>Solve:</p>
+
+        <div class="formula">
+            x = √(x + 2)
+        </div>
+
+        <p>Initial Guess:</p>
+
+        <div class="formula">
+            x₀ = 1
+        </div>
+
+        <h3>Step-by-Step Solution</h3>
+
+        <table>
+
+            <tr>
+                <th>Iteration</th>
+                <th>Formula</th>
+                <th>Result</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>x₁ = √(1 + 2)</td>
+                <td>1.732051</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>x₂ = √(1.732051 + 2)</td>
+                <td>1.931852</td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>x₃ = √(1.931852 + 2)</td>
+                <td>1.982889</td>
+            </tr>
+
+            <tr>
+                <td>4</td>
+                <td>x₄ = √(1.982889 + 2)</td>
+                <td>1.995718</td>
+            </tr>
+
+            <tr>
+                <td>5</td>
+                <td>x₅ = √(1.995718 + 2)</td>
+                <td>1.998929</td>
+            </tr>
+
+        </table>
+
+        <p>The values converge to:</p>
+
+        <div class="formula">
+            x ≈ 2
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CALCULATOR -->
+<section class="calculator" id="calculator">
+
+    <div class="card">
+
+        <h2>Interactive Calculator</h2>
+
+        <p>
+            Function used:
+        </p>
+
+        <div class="formula">
+            g(x) = cos(x)
+        </div>
+
+        <form method="POST">
+
+            <label>Initial Guess (x₀)</label>
+            <input type="number" step="any" name="x0" required>
+
+            <label>Tolerance</label>
+            <input type="number" step="any" name="tolerance" value="0.0001" required>
+
+            <label>Maximum Iterations</label>
+            <input type="number" name="max_iterations" value="20" required>
+
+            <button type="submit">
+                Calculate
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- OUTPUT -->
+{% if result is not none %}
+
+<section class="result-section">
+
+    <div class="card result-card">
+
+        <h2>Output</h2>
+
+        <div class="formula big">
+            x ≈ {{ result }}
+        </div>
+
+        <h3>Step-by-Step Iterations</h3>
+
+        <table>
+
+            <tr>
+                <th>Iteration</th>
+                <th>xₙ</th>
+                <th>xₙ₊₁</th>
+                <th>Error</th>
+            </tr>
+
+            {% for step in steps %}
+
+            <tr>
+                <td>{{ step.iteration }}</td>
+                <td>{{ step.x_old }}</td>
+                <td>{{ step.x_new }}</td>
+                <td>{{ step.error }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        Numerical Methods Project • Flask + Python
+    </p>
+
+</footer>
+
+</body>
+</html>

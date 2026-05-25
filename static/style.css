@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: #0b1220;
+    color: white;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: #0f1a30;
+    position: sticky;
+    top: 0;
+}
+
+.nav .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav .logo span {
+    color: #4ea1ff;
+}
+
+.nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at top, #1b2a4a, #0b1220);
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #b6c2d9;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #4ea1ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* SECTIONS */
+.card-section, .calculator, .result-section {
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    background: #121c33;
+    padding: 30px;
+    border-radius: 12px;
+    width: 60%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+h2 {
+    margin-bottom: 15px;
+    color: #4ea1ff;
+}
+
+.formula {
+    background: #0b1220;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 4px solid #4ea1ff;
+}
+
+.formula.big {
+    font-size: 22px;
+    text-align: center;
+}
+
+/* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #4ea1ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #2a3550;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #0f1a30;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}sss
