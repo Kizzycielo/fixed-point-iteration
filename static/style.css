@@ -107,6 +107,19 @@ nav a:hover::after{
 /* =========================
    HERO
 ========================= */
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(120,190,255,0.18),
+    transparent 65%);
+
+    mix-blend-mode:screen;
+    pointer-events:none;
+}
 .hero{
     width:92%;
     min-height:80vh;
